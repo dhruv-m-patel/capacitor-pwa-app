@@ -1,4 +1,4 @@
-const CACHE_NAME = 'capacitor-pwa-app-v1';
+const CACHE_NAME = 'version-1';
 const urlsToCache = ['index.html', 'offline.html'];
 
 const self = this;
@@ -34,15 +34,16 @@ self.addEventListener('fetch', (event) => {
 
 // Activate service worker
 self.addEventListener('activate', (event) => {
-  const cacheList = [CACHE_NAME];
+  const cacheList = [];
+  cacheList.push(CACHE_NAME);
 
   // Delete all previous versions and keep only the cache version we need
   event.waitUntil(
     caches.keys()
       .then((cacheKeys) => Promise.all(
-        cacheKeys.map((c) => {
-          if (!cacheList.includes(c)) {
-            return caches.delete(c);
+        cacheKeys.map((key) => {
+          if (!cacheList.includes(key)) {
+            return caches.delete(key);
           }
         }),
       )),
