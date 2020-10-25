@@ -1,0 +1,13 @@
+{
+  "appId": "com.capacitorpwa.app",
+  "appName": "capacitor-pwa-app",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "build",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  },
+  "cordova": {}
+}
